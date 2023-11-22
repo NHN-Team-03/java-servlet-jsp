@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>--%>
-<%@ taglib prefix="cfmt" uri="http://nhnacademy.com/cfmt" %>
+<%@ taglib prefix="cfmt" uri="http://chosun.ac.kr/cfmt" %>
 <html>
 <head>
     <title>공지사항</title>

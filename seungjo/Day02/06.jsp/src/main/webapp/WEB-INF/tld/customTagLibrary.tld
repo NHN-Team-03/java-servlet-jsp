@@ -6,7 +6,7 @@
     <display-name>CommonUtil functions</display-name>
     <tlib-version>1.0</tlib-version>
     <short-name>cfmt</short-name>
-    <uri>http://nhnacademy.com/cfmt</uri>
+    <uri>http://chosun.ac.kr/cfmt</uri>
 
     <function>
         <description>LocalDateTime parse</description>
