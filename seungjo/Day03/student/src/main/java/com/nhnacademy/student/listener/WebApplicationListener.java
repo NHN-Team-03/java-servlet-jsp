@@ -2,7 +2,7 @@ package com.nhnacademy.student.listener;
 
 import com.nhnacademy.student.Gender;
 import com.nhnacademy.student.Student;
-import com.nhnacademy.student.repository.MapStudentRepository;
+import com.nhnacademy.student.repository.JsonStudentRepository;
 import com.nhnacademy.student.repository.StudentRepository;
 import java.time.LocalDateTime;
 import javax.servlet.ServletContext;
@@ -24,7 +24,7 @@ public class WebApplicationListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
 
-        StudentRepository studentRepository = new MapStudentRepository();
+        StudentRepository studentRepository = new JsonStudentRepository();
 
         RandomDataGenerator randomDataGenerator = new RandomDataGenerator();
 

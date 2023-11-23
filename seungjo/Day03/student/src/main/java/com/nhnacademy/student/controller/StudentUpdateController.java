@@ -5,7 +5,9 @@ import com.nhnacademy.student.repository.StudentRepository;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class StudentUpdateController implements Command {
     private StudentRepository studentRepository;
 
@@ -17,6 +19,8 @@ public class StudentUpdateController implements Command {
         String id = Objects.requireNonNull(req.getParameter("id"));
         Student student = studentRepository.getStudentById(id);
         req.setAttribute("student", student);
+
+        log.info("student: {}", student);
 
         return "/student/register.jsp";
     }

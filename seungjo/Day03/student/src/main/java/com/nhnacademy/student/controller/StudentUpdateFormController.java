@@ -6,7 +6,9 @@ import com.nhnacademy.student.repository.StudentRepository;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class StudentUpdateFormController implements Command {
 
     private StudentRepository studentRepository;
@@ -24,6 +26,8 @@ public class StudentUpdateFormController implements Command {
         Gender gender = genderString.equals("M") ? Gender.M : Gender.F;
 
         Student student = new Student(id, name, gender, Integer.parseInt(age));
+
+        log.info("student: {}", student);
         studentRepository.update(student);
 
         return "redirect:/student/view.do?id=" + student.getId();

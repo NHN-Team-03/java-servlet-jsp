@@ -23,7 +23,7 @@
         <tbody>
         <tr>
             <th>ID</th>
-            <td><input type="text" name="id" value="${student.id}" required /></td>
+            <td><input type="text" name="id" value="${student.id}" ${empty student ? '' : 'readonly style="background-color: lightgray"'}  required /></td>
         </tr>
         <tr>
             <th>이름</th>
@@ -33,7 +33,7 @@
             <th>성별</th>
             <td>
                 <input type="radio" name="gender" value="M" ${student.gender eq 'M' ? 'checked' : '' } />남
-                <input type="radio" name="gender" value="M" ${student.gender eq 'F' ? 'checked' : '' } />여
+                <input type="radio" name="gender" value="F" ${student.gender eq 'F' ? 'checked' : '' } />여
             </td>
         </tr>
         <tr>
