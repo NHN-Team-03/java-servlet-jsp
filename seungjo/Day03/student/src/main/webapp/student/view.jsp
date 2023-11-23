@@ -45,15 +45,14 @@
 <ul>
     <li><a href="/student/list.do">리스트</a></li>
     <li>
-        <c:url var="update_link" value="/student/update.do" >
-            <c:param name="id" value="${student.id}" />
+        <c:url var="update_link" value="/student/update.do">
+            <c:param name="id" value="${student.id}"/>
         </c:url>
         <a href="${update_link}">수정</a>
     </li>
     <li>
-        <!-- todo /delete -> /delete.do 변경 -->
         <form method="post" action="/student/delete.do">
-            <input type="hidden" name="id" value="${student.id}" />
+            <input type="hidden" name="id" value="${student.id}"/>
             <button type="submit">삭제</button>
         </form>
     </li>
