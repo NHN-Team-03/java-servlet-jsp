@@ -1,9 +1,7 @@
 package com.nhnacademy.jsp.beans;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Notice implements Serializable {
 
@@ -12,7 +10,8 @@ public class Notice implements Serializable {
     private long counter;
     private LocalDateTime createdAt;
 
-    public Notice(){}
+    public Notice() {
+    }
 
     public Notice(String subject, String name, long counter) {
         this.subject = subject;

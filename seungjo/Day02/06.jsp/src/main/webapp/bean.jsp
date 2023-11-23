@@ -11,13 +11,13 @@
     <title>jsp bean action tag</title>
 </head>
 <body>
-    <jsp:useBean id="user1" scope="request" class="com.nhnacademy.jsp.beans.User"/>
-    <jsp:setProperty name="user1" property="name" param="userId"/>
-    <jsp:setProperty name="user1" property="age" param="userAag"/>
+    <jsp:useBean id="user1" scope="application" class="com.nhnacademy.jsp.beans.User"/>
+    <jsp:setProperty name="user1" property="name" param="userName"/>
+    <jsp:setProperty name="user1" property="age" param="userAge"/>
 
-    <p>my name is<jsp:getProperty name="user1" property="name"/>.</p>
-    <p>i am<jsp:getProperty name="user1" property="age"/> years old.</p>
-    <p>toString : <%=request.getAttribute("user1")%>
+    <p>my name is <jsp:getProperty name="user1" property="name"/>.</p>
+    <p>i am <jsp:getProperty name="user1" property="age"/> years old.</p>
+    <p>toString : <%=application.getAttribute("user1")%>
 </p>
 </body>
 </html>

@@ -43,7 +43,6 @@
             <td style="text-align: center">${item.name}</td>
             <td style="text-align: center">${item.counter}</td>
             <td style="text-align: center">
-                    <%--              <fmt:formatDate value="${item.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" />--%>
                     ${cfmt:formatDate(item.createdAt, 'yyyy-MM-dd HH:mm:ss')}
             </td>
         </tr>
