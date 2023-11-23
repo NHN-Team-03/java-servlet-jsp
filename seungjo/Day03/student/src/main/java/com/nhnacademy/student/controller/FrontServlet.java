@@ -60,17 +60,17 @@ public class FrontServlet extends HttpServlet {
         if ("/student/list.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
             command = new StudentListController();
         } else if ("/student/register.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
-            command = new StudentRegisterController();
-        } else if ("/student/register.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
             command = new StudentRegisterFormController();
+        } else if ("/student/register.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
+            command = new StudentRegisterController();
         } else if ("/student/view.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
             command = new StudentViewController();
         } else if ("/student/delete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
             command = new StudentDeleteController();
         } else if ("/student/update.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
-            command = new StudentUpdateController();
-        } else if ("/student/update.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
             command = new StudentUpdateFormController();
+        } else if ("/student/update.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
+            command = new StudentUpdateController();
         } else if ("/error.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
             command = new ErrorController();
         }

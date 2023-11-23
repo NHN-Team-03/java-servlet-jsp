@@ -8,24 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class StudentRegisterFormController implements Command {
-
-    private StudentRepository studentRepository;
-
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp) {
-
-        this.studentRepository = (StudentRepository) req.getServletContext().getAttribute("studentRepository");
-
-        String id = Objects.requireNonNull(req.getParameter("id"));
-        String name = Objects.requireNonNull(req.getParameter("name"));
-        String genderString = Objects.requireNonNull(req.getParameter("gender"));
-        String age = Objects.requireNonNull(req.getParameter("age"));
-
-        Gender gender = genderString.equals("M") ? Gender.M : Gender.F;
-
-        Student student = new Student(id, name, gender, Integer.parseInt(age));
-        studentRepository.save(student);
-
-        return "redirect:/student/view.do?id=" + student.getId();
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
+        return "/student/register.jsp";
     }
+
 }
