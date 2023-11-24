@@ -1,4 +1,4 @@
-package com.nhnacademy.proxy;
+package com.nhnacademy.stop;
 
 public interface PerformanceTestable {
     void test();
