@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-//@WebServlet(name = "StudentDeleteServlet", urlPatterns = "/student/delete")
+//@WebServlet(name = "studentDeleteServlet", urlPatterns = "/student/delete")
 public class StudentDeleteServlet extends HttpServlet {
 
     private StudentRepository studentRepository;
