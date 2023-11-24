@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-//@WebServlet(name = "ErrorServlet", urlPatterns = "/error")
+//@WebServlet(name = "errorServlet", urlPatterns = "/error")
 public class ErrorServlet extends HttpServlet {
 
     @Override

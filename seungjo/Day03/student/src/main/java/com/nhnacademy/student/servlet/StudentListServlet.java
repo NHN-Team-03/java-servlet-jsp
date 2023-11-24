@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-//@WebServlet(name = "StudentListServlet", urlPatterns = "/student/list")
+//@WebServlet(name = "studentListServlet", urlPatterns = "/student/list")
 public class StudentListServlet extends HttpServlet {
 
     private StudentRepository studentRepository;

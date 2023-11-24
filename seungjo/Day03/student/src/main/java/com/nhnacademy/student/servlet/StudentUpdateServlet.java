@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet(name = "StudentUpdateServlet", urlPatterns = "/student/update")
+//@WebServlet(name = "studentUpdateServlet", urlPatterns = "/student/update")
 public class StudentUpdateServlet extends HttpServlet {
 
     private StudentRepository studentRepository;
