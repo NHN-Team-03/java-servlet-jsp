@@ -1,5 +1,6 @@
 package com.nhnacademy.student.controller;
 
+import com.nhnacademy.student.annotation.RequestMapping;
 import com.nhnacademy.student.command.Command;
 import com.nhnacademy.student.repository.StudentRepository;
 import com.nhnacademy.student.student.Student;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequestMapping(value = "/student/update.do", method = RequestMapping.Method.GET)
 public class StudentUpdateFormController implements Command {
 
     @Override

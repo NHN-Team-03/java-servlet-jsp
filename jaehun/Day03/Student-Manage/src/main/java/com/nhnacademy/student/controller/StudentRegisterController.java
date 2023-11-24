@@ -1,5 +1,6 @@
 package com.nhnacademy.student.controller;
 
+import com.nhnacademy.student.annotation.RequestMapping;
 import com.nhnacademy.student.command.Command;
 import com.nhnacademy.student.repository.StudentRepository;
 import com.nhnacademy.student.student.Gender;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequestMapping(value = "/student/register.do", method = RequestMapping.Method.POST)
 public class StudentRegisterController implements Command {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {

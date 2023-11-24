@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -50,7 +51,6 @@ public class JsonStudentRepository implements StudentRepository {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         ) {
             students = objectMapper.readValue(bufferedReader, new TypeReference<List<Student>>() {});
-            log.error(students.get(0).getName());
             return  students;
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
@@ -87,10 +87,14 @@ public class JsonStudentRepository implements StudentRepository {
     public void update(Student student) {
         List<Student> students = readJsonFile();
 
+
         for (Student target : students) {
             if (student.getId().equals(target.getId())) {
-                target = student;
-                return;
+                target.setName(student.getName());
+                target.setGender(student.getGender());
+                target.setAge(student.getAge());
+                writeJsonFile(students);
+                break;
             }
         }
 
@@ -104,6 +108,7 @@ public class JsonStudentRepository implements StudentRepository {
         for (Student target : students) {
             if (id.equals(target.getId())) {
                 students.remove(target);
+                writeJsonFile(students);
                 return;
             }
         }

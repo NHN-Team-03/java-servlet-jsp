@@ -20,7 +20,7 @@
         </c:otherwise>
 </c:choose>
 </h1>
-<form method="post" action="${action}">
+<form method="POST" action="${action}">
     <table>
         <tbody>
             <tr>

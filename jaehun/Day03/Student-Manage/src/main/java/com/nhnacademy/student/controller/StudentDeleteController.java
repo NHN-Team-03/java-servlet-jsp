@@ -1,5 +1,6 @@
 package com.nhnacademy.student.controller;
 
+import com.nhnacademy.student.annotation.RequestMapping;
 import com.nhnacademy.student.command.Command;
 import com.nhnacademy.student.repository.StudentRepository;
 import java.util.Objects;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequestMapping(value = "/student/delete.do", method = RequestMapping.Method.POST)
 public class StudentDeleteController implements Command {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {

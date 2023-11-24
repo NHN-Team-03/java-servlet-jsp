@@ -1,5 +1,6 @@
 package com.nhnacademy.student.controller;
 
+import com.nhnacademy.student.annotation.RequestMapping;
 import com.nhnacademy.student.command.Command;
 import com.nhnacademy.student.repository.StudentRepository;
 import com.nhnacademy.student.student.Gender;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequestMapping(value = "/student/update.do", method = RequestMapping.Method.POST)
 public class StudentUpdateController implements Command {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -28,6 +30,7 @@ public class StudentUpdateController implements Command {
         if (Objects.nonNull(req.getParameter("age"))) {
             age = Integer.valueOf(req.getParameter("age"));
         }
+
 
         if (Objects.isNull(id) || Objects.isNull(name) || Objects.isNull(gender) || Objects.isNull(age)) {
             throw new RuntimeException("id, name, gender, age를 확인해주세요.");

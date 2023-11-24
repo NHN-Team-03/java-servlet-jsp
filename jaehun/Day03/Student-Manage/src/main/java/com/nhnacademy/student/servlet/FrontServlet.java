@@ -11,6 +11,7 @@ import com.nhnacademy.student.controller.StudentRegisterFormController;
 import com.nhnacademy.student.controller.StudentUpdateController;
 import com.nhnacademy.student.controller.StudentUpdateFormController;
 import com.nhnacademy.student.controller.StudentViewController;
+import com.nhnacademy.student.factory.ControllerFactory;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,8 +32,8 @@ public class FrontServlet extends HttpServlet {
         resp.setContentType("text/html");
 
         try {
-            Command command = resolveCommand(req.getServletPath(), req.getMethod());
-
+            ControllerFactory controllerFactory = (ControllerFactory) req.getServletContext().getAttribute("controllerFactory");
+            Command command = (Command) controllerFactory.getBean(req.getMethod(), req.getServletPath());
             String view = command.execute(req, resp);
             if (view.startsWith(REDIRECT_PREFIX)) {
                 log.error("redirect-url : {}", view.substring(REDIRECT_PREFIX.length()));
@@ -51,29 +52,5 @@ public class FrontServlet extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("/error.jsp");
             rd.forward(req,resp);
         }
-    }
-
-    private Command resolveCommand(String servletPath, String method) {
-        Command command = null;
-
-        if("/student/list.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
-            command = new StudentListController();
-        } else if ("/student/register.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
-            command = new StudentRegisterFormController();
-        } else if ("/student/register.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
-            command = new StudentRegisterController();
-        } else if ("/student/view.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
-            command = new StudentViewController();
-        } else if ("/student/update.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
-            command = new StudentUpdateFormController();
-        } else if ("/student/update.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
-            command = new StudentUpdateController();
-        } else if ("/student/delete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
-            command = new StudentDeleteController();
-        } else if ("/error.do".equals(servletPath)) {
-            command = new ErrorController();
-        }
-
-        return command;
     }
 }
