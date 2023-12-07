@@ -56,8 +56,7 @@ public class JsonStudentRepository implements StudentRepository {
              InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
              BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
 
-            students = objectMapper.readValue(bufferedReader, new TypeReference<List<Student>>() {
-            });
+            students = objectMapper.readValue(bufferedReader, new TypeReference<List<Student>>() {});
             return students;
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
@@ -71,7 +70,8 @@ public class JsonStudentRepository implements StudentRepository {
 
         File file = new File(JSON_FILE_PATH);
 
-        try (FileWriter fileWriter = new FileWriter(file); BufferedWriter bw = new BufferedWriter(fileWriter)) {
+        try (FileWriter fileWriter = new FileWriter(file);
+             BufferedWriter bw = new BufferedWriter(fileWriter)) {
             objectMapper.writeValue(bw, studentList);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -155,6 +155,7 @@ public class JsonStudentRepository implements StudentRepository {
                 return true;
             }
         }
+        
         return false;
     }
 }
